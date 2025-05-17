@@ -16,9 +16,7 @@ lerna-debug.log*
 .DS_Store
 
 # Prisma
-
-node_modules/
-generated/prisma/
+generated/
 vendor/
 tmp/
 dist/

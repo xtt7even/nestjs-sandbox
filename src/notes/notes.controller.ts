@@ -12,7 +12,8 @@ export class NotesController {
   }
 
   @Post('create')
-  createNote(@Body() noteBodyDto: CreateNoteDto) {
-    this.notesService.createNote(noteBodyDto);
+  createNote(@Body() dto: CreateNoteDto) {
+    console.log({ dto });
+    this.notesService.createNote(dto);
   }
 }

@@ -1,10 +1,10 @@
-import { MaxLength, MinLength } from 'class-validator';
+import { IsNotEmpty, MaxLength, MinLength } from 'class-validator';
 
 export class CreateNoteDto {
-  @MinLength(1)
+  @IsNotEmpty()
   @MaxLength(60)
   title: string;
 
-  @MinLength(1)
+  @IsNotEmpty()
   content: string;
 }
