@@ -1,14 +1,21 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
-import { NotesService } from './notes.service';
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  ParseIntPipe,
+  Post,
+} from '@nestjs/common';
 import { CreateNoteDto } from './dto/notes.dto';
+import { NotesService } from './notes.service';
 
 @Controller('notes')
 export class NotesController {
   constructor(private readonly notesService: NotesService) {}
 
-  @Get('get')
-  getNote() {
-    return this.notesService.getNote();
+  @Get('get/:id')
+  getNoteById(@Param('id', ParseIntPipe) id: number) {
+    return this.notesService.getNoteById({ id });
   }
 
   @Post('create')

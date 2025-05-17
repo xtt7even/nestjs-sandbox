@@ -1,4 +1,5 @@
-import { IsNotEmpty, MaxLength, MinLength } from 'class-validator';
+import { Transform } from 'class-transformer';
+import { IsInt, IsNotEmpty, MaxLength } from 'class-validator';
 
 export class CreateNoteDto {
   @IsNotEmpty()
@@ -7,4 +8,10 @@ export class CreateNoteDto {
 
   @IsNotEmpty()
   content: string;
+}
+
+export class GetNoteDto {
+  @Transform(({ value }) => Number(value))
+  @IsInt()
+  id: number;
 }
